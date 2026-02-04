@@ -18,6 +18,15 @@ def get_rect_neighbours(point, dims):
     return rect_neighbours
 
 
+def is_adjacent(pointa, pointb):
+    diffs = [abs(pointa[i] - pointb[i]) for i in range(len(pointa))]
+    return max(diffs) < 2
+
+def hat(vector):
+    vector = [x // abs(x) if x else 0 for x in vector]
+    return vector
+
+
 def show_grid(grid):
     """Display a character grid."""
     for row in grid:
