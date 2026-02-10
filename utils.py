@@ -44,7 +44,7 @@ def show_bool_grid(grid):
 
 def valid(point, dims):
     """Check if a point is within grid bounds."""
-    return greater(point, (-1, -1)) and greater(dims, point)
+    return greater(point, (-1 for _ in point)) and greater(dims, point)
 
 
 def add(a, b):
