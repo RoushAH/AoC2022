@@ -48,7 +48,7 @@ def find_groups(s: str) -> list[str]:
 OPS = {"+": lambda a, b: a + b,
        "-": lambda a, b: a - b,
        "*": lambda a, b: a * b,
-       "/": lambda a, b: a / b, }
+       "/": lambda a, b: a // b, }
 
 
 def get_monkeys(file):
