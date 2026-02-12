@@ -18,9 +18,23 @@ def get_rect_neighbours(point, dims):
     return rect_neighbours
 
 
+def get_all_neighbours(point, dims=None):
+    options = ((-1, 0), (1, 0), (0, -1), (0, 1), (-1, -1), (-1, 1), (1, -1), (1, 1))
+    rect_neighbours = []
+    for option in options:
+        pos = add(option, point)
+        if dims:
+            if valid(pos, dims):
+                rect_neighbours.append(pos)
+        else:
+            rect_neighbours.append(pos)
+    return rect_neighbours
+
+
 def is_adjacent(pointa, pointb):
     diffs = [abs(pointa[i] - pointb[i]) for i in range(len(pointa))]
     return max(diffs) < 2
+
 
 def hat(vector):
     vector = [x // abs(x) if x else 0 for x in vector]
@@ -78,3 +92,7 @@ def prod(*args):
 def scale(scalar, vector):
     """Scale a vector by a scalar."""
     return tuple(x * scalar for x in vector)
+
+def show(ddict):
+    for k, v in ddict.items():
+        print(k, v)
